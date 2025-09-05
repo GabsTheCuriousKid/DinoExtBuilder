@@ -20,6 +20,7 @@ class Compiler {
             `*/`,
             `(async function (dinoBuilder) {`,
             `const variables = {};`,
+            `const blocks = [];`,
             start
         ];
         const classRegistry = {
@@ -58,9 +59,9 @@ class Compiler {
 
         return [].concat(headerCode, classRegistry.top, [
             `getInfo() {`,
-            `return ${JSON.stringify(classRegistry.extensionInfo).substring(0, JSON.stringify(classRegistry.extensionInfo).length - 1) + ', "blocks": ' + code + ' }'}`,
+            `return ${JSON.stringify(classRegistry.extensionInfo).substring(0, JSON.stringify(classRegistry.extensionInfo).length - 1) + ', "blocks": blocks }'}`,
             `}`,
-        ], classRegistry.bottom, footerCode).join('\n');
+        ], classRegistry.bottom, code, footerCode).join('\n');
     }
 }
 
