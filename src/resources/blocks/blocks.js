@@ -35,10 +35,10 @@ function register() {
                 "type": "field_dropdown",
                 "name": "TYPE",
                 "options": [
-                    [ "block", "COMMAND," ],
+                    [ "block", "BLOCK," ],
                     [ "reporter", "REPORTER," ],
                     [ "boolean", "BOOLEAN," ],
-                    [ "cap", "COMMAND,\nisTerminal: true," ],
+                    [ "cap", "BLOCK,\nisTerminal: true," ],
                 ]
             },
             {
@@ -72,7 +72,7 @@ function register() {
         
         const code = `blocks.push({
             opcode: \`${ID}\`,
-            blockType: dinoBuilder.BlockType.${TYPE}
+            type: dinoBuilder.BlockType.${TYPE}
             text: \`${TEXT}\`,
             arguments: { ${INPUTS} },
             returns: (block, javascriptGenerator) => { ${FUNC} }
@@ -332,9 +332,9 @@ function register() {
         inputsInline: true,
         colour: categoryColor,
     }, (block) => {
-        let parent = block.getSurroundParent();
+        let parent = block.getParent();
         while (parent && parent.type !== `${categoryPrefix}create`) {
-            parent = parent.getSurroundParent();
+            parent = parent.getParent();
         }
         const getFieldType = parent.getFieldValue('TYPE')
         const VALUE = javascriptGenerator.valueToCode(block, 'VALUE', javascriptGenerator.ORDER_ATOMIC);
