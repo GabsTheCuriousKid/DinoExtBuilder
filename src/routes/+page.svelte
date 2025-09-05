@@ -216,19 +216,19 @@
     }
 
     function generateDinoBuilderWindow(window) {
-        window.dinoBuilder = window.dinoBuilder || {};
+        window.dinoExtBuilder = window.dinoExtBuilder || {};
 
         // Blockly
-        window.dinoBuilder.Blockly = window.Blockly || {};
-        window.dinoBuilder.Blockly.getMainWorkspace = () => workspace;
-        window.dinoBuilder.Blockly.getMainWorkspace().undo = () => workspace.undo();
-        window.dinoBuilder.Blockly.getMainWorkspace().redo = () => workspace.redo();
+        window.dinoExtBuilder.Blockly = window.Blockly || {};
+        window.dinoExtBuilder.Blockly.getMainWorkspace = () => workspace;
+        window.dinoExtBuilder.Blockly.getMainWorkspace().undo = () => workspace.undo();
+        window.dinoExtBuilder.Blockly.getMainWorkspace().redo = () => workspace.redo();
 
         // Gui
-        window.dinoBuilder.Gui = window.Gui || {};
-        window.dinoBuilder.Gui.isLiveTests = () => IsLiveTests;
-        window.dinoBuilder.Gui.copy = (text) => navigator.clipboard.writeText(text);
-        window.dinoBuilder.Gui.download = (text, fileName, fileExtension, fileType = "text/javascript;charset=UTF-8") => {
+        window.dinoExtBuilder.Gui = window.Gui || {};
+        window.dinoExtBuilder.Gui.isLiveTests = () => IsLiveTests;
+        window.dinoExtBuilder.Gui.copy = (text) => navigator.clipboard.writeText(text);
+        window.dinoExtBuilder.Gui.download = (text, fileName, fileExtension, fileType = "text/javascript;charset=UTF-8") => {
             const filteredFileName = fileName.replace(
                 /[^a-z0-9\-]+/gim,
                 "_"
@@ -238,7 +238,7 @@
             });
             FileSaver.saveAs(blob, filteredFileName + fileExtension);
         };
-        window.dinoBuilder.Gui.generatedCode = () => beautifyGeneratedCode(code);
+        window.dinoExtBuilder.Gui.generatedCode = () => beautifyGeneratedCode(code);
     }
 
     let dropdownEl;
@@ -834,14 +834,6 @@
             <div class="blockMenuButtons">
                 <StyledButton
                     on:click={() => {
-                        ModalState.addExtensions = true;
-                    }}
-                >
-                    Add an Extension
-                </StyledButton>
-                <div style="margin-left:8px" />
-                <StyledButton
-                    on:click={() => {
                         ModalState.extensionColors = true;
                     }}
                 >
@@ -887,83 +879,8 @@
             <div class="assetsWrapper">
                 <h1>Assets</h1>
                 <p>
-                    Extra things that will appear under
-                    {#if projectName}
-                        "{projectName}"
-                    {:else}
-                        "Extension"
-                    {/if}
-                    in the block list.
-                    <br />
-                    These things are not required, so you can leave them empty if
-                    you do not need them.
+                    There's nothing to change here yet.
                 </p>
-                <p>
-                    Documentation URL:
-                    <input
-                        type="text"
-                        placeholder="https://..."
-                        bind:value={extensionMetadata.docsURL}
-                        on:change={updateGeneratedCode}
-                    />
-                </p>
-                <p>
-                    Extension Icon:
-                    <input type="file" accept=".png,.jpg,.jpeg" on:change={extensionIconAdded} />
-                </p>
-                {#if !extensionImageStates.icon.loading && !extensionImageStates.icon.failed && extensionImageStates.icon.image}
-                    <img
-                        alt="Extension Icon"
-                        title="Extension Icon"
-                        class="extensionIcon"
-                        src={extensionImageStates.icon.image}
-                    />
-                {/if}
-                {#if extensionImageStates.icon.image}
-                    {#if extensionImageStates.icon.failed}
-                        <p class="warning">
-                            The extension icon is not an image, this may appear
-                            broken in the category list.
-                        </p>
-                    {/if}
-                    {#if !extensionImageStates.icon.square}
-                        <p class="warning">
-                            The image is not square, this may appear broken in
-                            the category list.
-                        </p>
-                    {/if}
-                {/if}
-                <h3>Extra Icons</h3>
-                <p>
-                    Blocks can use their own icons instead of the Extension
-                    icon.
-                    <br />
-                    Add more images here to use them.
-                </p>
-                <p>
-                    <input type="file" accept=".png,.jpg,.jpeg" on:change={extraIconAdded} />
-                </p>
-                {#if !extensionImageStates.menuicon.loading && !extensionImageStates.menuicon.failed && extensionImageStates.menuicon.image}
-                    <img
-                        alt="Menu Icon"
-                        title="Menu Icon"
-                        class="menuIcon"
-                        src={extensionImageStates.menuicon.image}
-                    />
-                {/if}
-                {#if extensionImageStates.menuicon.image}
-                    {#if extensionImageStates.menuicon.failed}
-                        <p class="warning">
-                            The menu icon is not an image, this may appear
-                            broken.
-                        </p>
-                    {/if}
-                    {#if !extensionImageStates.menuicon.square}
-                        <p class="warning">
-                            The image is not square, this may appear broken.
-                        </p>
-                    {/if}
-                {/if}
             </div>
             <div class="row-subsubmenus">
                 <div class="codeActionsWrapper">

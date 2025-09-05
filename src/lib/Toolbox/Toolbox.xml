@@ -1,4 +1,8 @@
 <xml>
+    <category name="Variables" colour="#FF8C1A">
+        <block type="variable_set" />
+        <block type="variable_get" />
+    </category>
     <category name="Blocks" colour="#FF6680">
         <block type="blocks_create" />
         <!--<block type="blocks_createcap" />

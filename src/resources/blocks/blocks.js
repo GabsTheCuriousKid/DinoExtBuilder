@@ -8,7 +8,7 @@ const categoryColor = '#FF6680';
 function register() {
     // create dem blocks!!!
     registerBlock(`${categoryPrefix}create`, {
-        message0: 'create block %1 id: %2 %3 text: %4 %5 type: %6 %7 filter: %8 %9 hide from palette?: %10 disable monitor?: %11 %12 inputs: %13 %14 function: %15 %16',
+        message0: 'create block %1 id: %2 %3 text: %4 %5 type: %6 %7 %8 inputs: %9 %10 function: %11 %12',
         args0: [
             {
                 "type": "input_dummy"
@@ -45,34 +45,6 @@ function register() {
                 "type": "input_dummy"
             },
             {
-                "type": "field_dropdown",
-                "name": "FILTER",
-                "options": [
-                    [ "no filter", "" ],
-                    [ "stage only", "\nfilter: [Scratch.TargetType.STAGE]," ],
-                    [ "sprite only", "\nfilter: [Scratch.TargetType.SPRITE]," ],
-                ]
-            },
-            {
-                "type": "input_dummy"
-            },
-            {
-                "type": "input_value",
-                "name": "CONDITION",
-                "check": "Boolean"
-            },
-            {
-                "type": "field_dropdown",
-                "name": "DMCONDITION",
-                "options": [
-                    [ "false", "false" ],
-                    [ "true", "true" ],
-                ]
-            },
-            {
-                "type": "input_dummy"
-            },
-            {
                 "type": "input_dummy"
             },
             {
@@ -100,7 +72,7 @@ function register() {
         
         const code = `{
             opcode: \`${ID}\`,
-            blockType: Scratch.BlockType.${TYPE}
+            blockType: dinoBuilder.BlockType.${TYPE}
             text: \`${TEXT}\`,
             arguments: { ${INPUTS} },
             returns: (block, javascriptGenerator) => { ${FUNC} }

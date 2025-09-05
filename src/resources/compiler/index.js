@@ -20,7 +20,6 @@ class Compiler {
             `*/`,
             `(async function (dinoBuilder) {`,
             `const variables = {};`,
-            ``,
             start
         ];
         const classRegistry = {
