@@ -1,0 +1,545 @@
+<xml>
+    <category name="Sprites" colour="#4C97FF">
+        <block type="motion_goto_position">
+            <value name="X">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="Y">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="motion_changeby_position">
+            <value name="X">
+                <shadow type="math_number">
+                    <field name="NUM">10</field>
+                </shadow>
+            </value>
+            <value name="Y">
+                <shadow type="math_number">
+                    <field name="NUM">10</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="motion_getsprite">
+            <value name="SPRITE">
+                <shadow type="text">
+                    <field name="TEXT">Sprite1</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="motion_getxof" />
+        <block type="motion_getyof" />
+        <sep gap="48"></sep>
+        <block type="motion_setdirection">
+            <value name="DIR">
+                <shadow type="math_angle">
+                    <field name="NUM">90</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="motion_getdirof" />
+        <block type="motion_setrotatestyle" />
+        <block type="motion_getrotatestyleof" />
+        <sep gap="48"></sep>
+        <block type="motion_stage" />
+        <block type="motion_isstage" />
+    </category>
+    <category name="Sound" colour="#CF63CF">
+        <!--<block type="sound_playsound" />-->
+        <block type="sound_startsound" />
+        <!--<sep gap="48"></sep>-->
+        <!--<block type="sound_stopallsounds" />-->
+        <block type="sound_getvolumeof" />
+        <sep gap="48"></sep>
+        <block type="sound_setprojectvolume">
+            <value name="VALUE">
+                <shadow type="math_number">
+                    <field name="NUM">100</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="sound_changeprojectvolume">
+            <value name="VALUE">
+                <shadow type="math_number">
+                    <field name="NUM">-10</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="sound_getprojectvolume" />
+    </category>
+    <category name="Events" colour="#FFBF00">
+        <block type="events_interval">
+            <value name="TIME">
+                <shadow type="math_positive_number">
+                    <field name="NUM">2</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="events_timeout">
+            <value name="TIME">
+                <shadow type="math_positive_number">
+                    <field name="NUM">2</field>
+                </shadow>
+            </value>
+        </block>
+        <sep gap="48"></sep>
+        <block type="events_always" />
+    </category>
+    <category name="Control" colour="#FFAB19">
+        <block type="control_wait">
+            <value name="MS">
+                <shadow type="math_positive_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="control_waituntil" />
+        <sep gap="48"></sep>
+        <block type="control_repeat">
+            <value name="TIMES">
+                <shadow type="math_whole_number">
+                    <field name="NUM">10</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="control_forever" />
+        <sep gap="48"></sep>
+        <block type="control_if" />
+        <block type="control_if">
+            <mutation else="1" />
+        </block>
+        <block type="control_ifthenreturn">
+            <value name="X">
+                <shadow type="text">
+                    <field name="TEXT">foo</field>
+                </shadow>
+            </value>
+            <value name="Y">
+                <shadow type="text">
+                    <field name="TEXT">bar</field>
+                </shadow>
+            </value>
+        </block>
+        <sep gap="48"></sep>
+        <block type="control_switch" />
+        <block type="control_case">
+            <value name="VALUE">
+                <shadow type="text">
+                    <field name="TEXT">foo</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="control_default" />
+        <block type="control_break" />
+        <sep gap="48"></sep>
+        <block type="control_while" />
+        <sep gap="48"></sep>
+        <block type="control_try_catch" />
+        <block type="control_throwerror">
+            <value name="VALUE">
+                <shadow type="text">
+                    <field name="TEXT">Hello!</field>
+                </shadow>
+            </value>
+        </block>
+        <!--<block type="control_error" />-->
+    </category>
+    <category name="Sensing" colour="#5CB1D6">
+        <block type="sensing_keypress" />
+        <sep gap="48"></sep>
+        <block type="sensing_alert">
+            <value name="ALERT">
+                <shadow type="text">
+                    <field name="TEXT">Hello!</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="sensing_prompt">
+            <value name="ALERT">
+                <shadow type="text">
+                    <field name="TEXT">How are you?</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="sensing_confirm">
+            <value name="ALERT">
+                <shadow type="text">
+                    <field name="TEXT">Are you sure?</field>
+                </shadow>
+            </value>
+        </block>
+        <sep gap="48"></sep>
+        <block type="sensing_time" />
+        <block type="sensing_currenttime" />
+        <block type="sensing_leapyear" />
+        <sep gap="48"></sep>
+        <block type="sensing_isfocused" />
+        <sep gap="48"></sep>
+        <block type="sensing_getcilentmouseposition" />
+        <block type="sensing_getmouseposition" />
+        <block type="sensing_ismousedown" />
+        <sep gap="48"></sep>
+        <block type="sensing_gettimer" />
+        <block type="sensing_resettimer" />
+        <block type="sensing_pausetimer" />
+        <block type="sensing_resumetimer" />
+        <!--<block type="sensing_optiontimer" />-->
+        <sep gap="48"></sep>
+        <block type="sensing_getusername" />
+    </category>
+    <category name="Literals" colour="#59C08E">
+        <block type="literals_null" />
+        <block type="literals_true" />
+        <block type="literals_false" />
+        <block type="literals_randomBoolean" />
+        <block type="literals_number" />
+        <block type="literals_direction" />
+        <block type="literals_string" />
+        <block type="literals_color" />
+        <sep gap="48"></sep>
+        <block type="literals_newline" />
+        <block type="literals_tabchar" />
+        <sep gap="48"></sep>
+        <block type="literals_array" />
+        <block type="literals_arraylength" />
+        <block type="literals_object" />
+    </category>
+    <category name="Operators" colour="#59C059">
+        <block type="operators_equals" />
+        <block type="operators_strictequals" />
+        <block type="operators_notequals" />
+        <block type="operators_more" />
+        <block type="operators_less" />
+        <sep gap="48"></sep>
+        <block type="operators_and" />
+        <block type="operators_or" />
+        <block type="operators_xor" />
+        <block type="operators_not" />
+        <sep gap="48"></sep>
+        <block type="operators_add">
+            <value name="X">
+                <shadow type="math_number">
+                    <field name="NUM"></field>
+                </shadow>
+            </value>
+            <value name="Y">
+                <shadow type="math_number">
+                    <field name="NUM"></field>
+                </shadow>
+            </value>
+        </block>
+        <block type="operators_minus">
+            <value name="X">
+                <shadow type="math_number">
+                    <field name="NUM"></field>
+                </shadow>
+            </value>
+            <value name="Y">
+                <shadow type="math_number">
+                    <field name="NUM"></field>
+                </shadow>
+            </value>
+        </block>
+        <block type="operators_multiply">
+            <value name="X">
+                <shadow type="math_number">
+                    <field name="NUM"></field>
+                </shadow>
+            </value>
+            <value name="Y">
+                <shadow type="math_number">
+                    <field name="NUM"></field>
+                </shadow>
+            </value>
+        </block>
+        <block type="operators_divide">
+            <value name="X">
+                <shadow type="math_number">
+                    <field name="NUM"></field>
+                </shadow>
+            </value>
+            <value name="Y">
+                <shadow type="math_number">
+                    <field name="NUM"></field>
+                </shadow>
+            </value>
+        </block>
+        <block type="operators_mod">
+            <value name="X">
+                <shadow type="math_number">
+                    <field name="NUM"></field>
+                </shadow>
+            </value>
+            <value name="Y">
+                <shadow type="math_number">
+                    <field name="NUM"></field>
+                </shadow>
+            </value>
+        </block>
+        <block type="operators_power">
+            <value name="X">
+                <shadow type="math_number">
+                    <field name="NUM"></field>
+                </shadow>
+            </value>
+            <value name="Y">
+                <shadow type="math_number">
+                    <field name="NUM"></field>
+                </shadow>
+            </value>
+        </block>
+        <sep gap="48"></sep>
+        <block type="operators_log">
+            <value name="X">
+                <shadow type="math_number">
+                    <field name="NUM"></field>
+                </shadow>
+            </value>
+            <value name="Y">
+                <shadow type="math_number">
+                    <field name="NUM"></field>
+                </shadow>
+            </value>
+        </block>
+        <block type="operators_root">
+            <value name="X">
+                <shadow type="math_number">
+                    <field name="NUM"></field>
+                </shadow>
+            </value>
+            <value name="Y">
+                <shadow type="math_number">
+                    <field name="NUM"></field>
+                </shadow>
+            </value>
+        </block>
+        <block type="operators_adv">
+            <value name="Y">
+                <shadow type="math_number">
+                    <field name="NUM"></field>
+                </shadow>
+            </value>
+        </block>
+        <sep gap="48"></sep>
+        <block type="operators_randomint">
+            <value name="X">
+                <shadow type="math_number">
+                    <field name="NUM"></field>
+                </shadow>
+            </value>
+            <value name="Y">
+                <shadow type="math_number">
+                    <field name="NUM"></field>
+                </shadow>
+            </value>
+        </block>
+        <block type="operators_random">
+            <value name="X">
+                <shadow type="math_number">
+                    <field name="NUM"></field>
+                </shadow>
+            </value>
+            <value name="Y">
+                <shadow type="math_number">
+                    <field name="NUM"></field>
+                </shadow>
+            </value>
+        </block>
+        <sep gap="48"></sep>
+        <block type="operators_clamp">
+            <value name="VALUE">
+                <shadow type="math_number">
+                    <field name="NUM">50</field>
+                </shadow>
+            </value>
+            <value name="X">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="Y">
+                <shadow type="math_number">
+                    <field name="NUM">100</field>
+                </shadow>
+            </value>
+        </block>
+        <sep gap="48"></sep>
+        <block type="operators_join" />
+        <block type="operators_includes">
+            <value name="X">
+                <shadow type="text">
+                    <field name="TEXT">foo</field>
+                </shadow>
+            </value>
+            <value name="Y">
+                <shadow type="text">
+                    <field name="TEXT">bar</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="operators_split" />
+        <block type="operators_letter">
+            <value name="X">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="Y">
+                <shadow type="text">
+                    <field name="TEXT">example</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="operators_length_of">
+            <value name="X">
+                <shadow type="text">
+                    <field name="TEXT">apple</field>
+                </shadow>
+            </value>
+        </block>
+    </category>
+    <category name="Conversions" colour="#8BC059">
+        <block type="conversions_tonumber" />
+        <block type="conversions_tostring" />
+        <block type="conversions_toboolean" />
+        <block type="conversions_case" />
+        <block type="conversions_base" />
+        <sep gap="48"></sep>
+        <block type="conversions_time" />
+    </category>
+    <category name="Variables" colour="#FF8C1A">
+        <block type="variable_set" />
+        <block type="variable_get" />
+        <sep gap="48"></sep>
+        <block type="variable_setls" />
+        <block type="variable_getls" />
+        <block type="variable_lsexists" />
+        <block type="variable_removels" />
+        <block type="variable_clearls" />
+    </category>
+    <category name="JSON" colour="#FF661A">
+        <block type="json_validate" />
+        <block type="json_tojson" />
+        <block type="json_tostring" />
+        <sep gap="64"></sep>
+        <block type="json_arrayinsert" />
+        <block type="json_arrayset" />
+        <block type="json_arraymerge" />
+        <sep gap="48"></sep>
+        <block type="json_arrayget" />
+        <block type="json_arraylength" />
+        <sep gap="64"></sep>
+        <block type="json_objectset" />
+        <block type="json_objectmerge" />
+        <sep gap="48"></sep>
+        <block type="json_objectget" />
+        <block type="json_objectkeys" />
+        <block type="json_objectvalues" />
+    </category>
+    <sep></sep>
+    <category name="Blocks" colour="#FF6680">
+        <block type="blocks_create">
+            <value name="CONDITION">
+                <block type="literals_false" />
+            </value>
+        </block>
+        <!--<block type="blocks_createcap" />-->
+        <block type="blocks_createobject">
+            <value name="CONDITION">
+                <block type="literals_false" />
+            </value>
+        </block>
+        <block type="blocks_gap" />
+        <block type="blocks_input" />
+        <block type="blocks_menu" />
+        <block type="blocks_callhat" />
+        <sep gap="48"></sep>
+        <block type="blocks_currentSprite" />
+        <sep gap="48"></sep>
+        <block type="blocks_get" />
+        <block type="blocks_return" />
+    </category>
+    <category name="Menus" colour="#CB48E8">
+        <block type="menus_itemtextvalue" />
+        <block type="menus_itemtextnvalue" />
+        <block type="menus_joinarrays" />
+        <block type="menus_create" />
+        <block type="menus_created" />
+    </category>
+    <category name="Functions" colour="#5531D6">
+        <block type="functions_create">
+            <statement name="FUNC">
+                <block type="functions_return" />
+            </statement>
+        </block>
+        <block type="functions_createPara">
+            <statement name="FUNC">
+                <block type="functions_return" />
+            </statement>
+        </block>
+        <block type="functions_define">
+            <statement name="BLOCKS">
+                <block type="functions_return" />
+            </statement>
+        </block>
+        <!--<block type="functions_getsprites"></block>
+        <sep gap="48"></sep>-->
+        <block type="functions_return" />
+        <block type="functions_arg" />
+        <sep gap="48"></sep>
+        <block type="functions_call" />
+        <block type="functions_callreporter" />
+        <block type="functions_callPara" />
+        <block type="functions_callreporterPara" />
+        <sep gap="48"></sep>
+        <block type="functions_execute_a" />
+        <block type="functions_execute_b" />
+    </category>
+    <category name="Technical" colour="#666666">
+        <block type="debug_log">
+            <value name="LOG">
+                <shadow type="text">
+                    <field name="TEXT">a log</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="debug_warn">
+            <value name="LOG">
+                <shadow type="text">
+                    <field name="TEXT">a warning</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="debug_error">
+            <value name="LOG">
+                <shadow type="text">
+                    <field name="TEXT">an error</field>
+                </shadow>
+            </value>
+        </block>
+        <sep gap="48"></sep>
+        <block type="debug_rawblock" />
+        <block type="debug_raw" />
+        <sep gap="48"></sep>
+        <block type="debug_comment" />
+        <block type="debug_commentstack" />
+        <sep gap="48"></sep>
+        <block type="debug_catch" />
+    </category>
+    <sep></sep>
+    <category name="Penguinmod" colour="#00C3FF">
+        <!--<block type="looks_setpenguinmodeffect" />
+        <block type="looks_getpenguinmodeffect" />
+        <block type="looks_gettintcolor" />-->
+        <block type="blocks_penguinmodcreate">
+            <value name="CONDITION">
+                <block type="literals_false" />
+            </value>
+        </block>
+        <block type="blocks_ispenguinmod" />
+    </category>
+</xml>

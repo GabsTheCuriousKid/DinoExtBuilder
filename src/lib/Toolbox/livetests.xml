@@ -1,0 +1,12 @@
+<!--Title: Live Tests
+Description: View blocks that are currently being worked on.-->
+<category name="Live Tests" colour="#FF0000">
+    <!--<label text="Motion"></label>
+    <block type="motion_setrotatestyle" />-->
+    <label text="Sound"></label>
+    <block type="sound_stopallsounds" />
+    <label text="Control"></label>
+    <block type="control_try_catch2" />
+    <label text="Functions"></label>
+    <block type="functions_getsprites" />
+</category>

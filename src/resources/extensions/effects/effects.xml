@@ -1,0 +1,51 @@
+<xml>
+    <category name="Effects" colour="#9966FF">
+        <block type="looks_say">
+            <value name="TEXT">
+                <shadow type="text">
+                    <field name="TEXT">Hello!</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="looks_think">
+            <value name="TEXT">
+                <shadow type="text">
+                    <field name="TEXT">Hmm...</field>
+                </shadow>
+            </value>
+        </block>
+        <sep gap="48"></sep>
+        <block type="looks_changeeffectby">
+            <value name="VALUE">
+                <shadow type="math_number">
+                    <field name="NUM">25</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="looks_seteffect">
+            <value name="VALUE">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="looks_cleareffects" />
+        <block type="looks_geteffect" />
+        <sep gap="48"></sep>
+        <block type="looks_setlayer">
+            <value name="VALUE">
+                <shadow type="math_integer">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="looks_golayer">
+            <value name="VALUE">
+                <shadow type="math_integer">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="looks_getlayerof" />
+    </category>
+</xml>

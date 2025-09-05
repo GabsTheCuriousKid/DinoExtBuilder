@@ -1,0 +1,63 @@
+<!--Title: Timers (DinosaurMod only)
+Description: Adds blocks that utilize timers-->
+<category name="Timers" colour="#5CB1D6" data-extension="true">
+    <block type="timers_createtimer" data-extension="true">
+        <value name="ID">
+            <shadow type="text">
+                <field name="TEXT">Timer1</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="timers_restarttimer" data-extension="true">
+        <value name="ID">
+            <shadow type="text">
+                <field name="TEXT">Timer1</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="timers_gettimer" data-extension="true">
+        <value name="ID">
+            <shadow type="text">
+                <field name="TEXT">Timer1</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="timers_gettimerobject" data-extension="true">
+        <value name="ID">
+            <shadow type="text">
+                <field name="TEXT">Timer1</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="timers_hastimerstarted" data-extension="true">
+        <value name="ID">
+            <shadow type="text">
+                <field name="TEXT">Timer1</field>
+            </shadow>
+        </value>
+    </block>
+    <sep gap="48"></sep>
+    <block type="timers_gettimers" data-extension="true" />
+    <sep gap="48"></sep>
+    <block type="timers_pausetimer" data-extension="true">
+        <value name="ID">
+            <shadow type="text">
+                <field name="TEXT">Timer1</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="timers_resumetimer" data-extension="true">
+        <value name="ID">
+            <shadow type="text">
+                <field name="TEXT">Timer1</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="timers_istimerpaused" data-extension="true">
+        <value name="ID">
+            <shadow type="text">
+                <field name="TEXT">Timer1</field>
+            </shadow>
+        </value>
+    </block>
+</category>

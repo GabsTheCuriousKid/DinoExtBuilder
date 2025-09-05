@@ -1,0 +1,11 @@
+<!--Title: Site Runtime
+Description: Use blocks to change the website.-->
+<category name="Site Runtime" colour="#8361FF" data-extension="true">
+    <block type="webextension_current" data-extension="true" />
+    <label text="Open Other Sites"></label>
+    <block type="webextension_openorredirect" data-extension="true" />
+    <label text="Fullscreen"></label>
+    <block type="webextension_fullscreenOn" data-extension="true" />
+    <block type="webextension_fullscreenOff" data-extension="true" />
+    <block type="webextension_Isfullscreen" data-extension="true" />
+</category>
