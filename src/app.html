@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
-		<title>DinoBuilder - Make extensions with blocks</title>
+		<title>DinoExtBuilder - Make extensions with blocks</title>
     	<meta name="description" content="Create TurboWarp, Penguinmod, Dinosaurmod extensions using Scratch-like block coding." />
     	<meta name="keywords" content="turbowarp, extensions, blocks" />
     	<meta name="author" content="GabsTheCuriousKid" />
@@ -120,7 +120,9 @@
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<div class="__alert_prompt" id="Zm5BSEgzQW5HeW9yZkFkNEhpbGJiamtpZmdoOGNDc2lMR29JSzF0K2JnPT0=">
-			<p style="margin-block: 0;" id="AlertPrompt">DinoBuilder is currently in development, some project files may break due to code changing all the time.</p>
+			<p style="margin-block: 0;" id="AlertPrompt">
+				DinoExtBuilder is currently in beta development and very limited.
+			</p>
 			<button
 				style="margin: 0; margin-left: 8px; background: transparent; border: 0; outline: 0; padding: 0; cursor: pointer;"
 				onclick="document.getElementById('Zm5BSEgzQW5HeW9yZkFkNEhpbGJiamtpZmdoOGNDc2lMR29JSzF0K2JnPT0=').remove()"
@@ -204,32 +206,6 @@
 				}
 			};
 			updateTheme();
-
-			document.addEventListener('DOMContentLoaded', async () => {
-				const alertPrompt = document.getElementById('AlertPrompt');
-
-				const urlParams = new URLSearchParams(location.search);
-				const IsLiveTests = urlParams.has('livetests');
-
-				if (!!IsLiveTests) {
-					alertPrompt.innerHTML = "This is a dev version of DinoBuilder, this is where features are made and tested."
-					document.title = "DinoBuilder - Dev version"
-				} else {
-					alertPrompt.innerHTML = "DinoBuilder is currently in development, some project files may break due to code changing all the time."
-					document.title = "DinoBuilder - Make extensions with blocks"
-				}
-
-				let isSiteDown = false;
-
-				while (!document.getElementById('svelte-announcer')) {
-					await new Promise(resolve => setTimeout(resolve, 10))
-				}
-				
-				if (!!isSiteDown) {
-					alertPrompt.innerHTML = "DinoBuilder is currently dealing with some errors, we're working on fixing them."
-					document.title = "DinoBuilder is down"
-				}
-			})
 		</script>
 		<div style="display: contents">%sveltekit.body%</div>
 	</body>

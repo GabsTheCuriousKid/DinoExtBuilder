@@ -38,8 +38,6 @@ function register() {
                     [ "block", "COMMAND," ],
                     [ "reporter", "REPORTER," ],
                     [ "boolean", "BOOLEAN," ],
-                    [ "hat", "HAT," ],
-                    [ "event hat", "EVENT," ],
                     [ "cap", "COMMAND,\nisTerminal: true," ],
                 ]
             },
@@ -97,24 +95,16 @@ function register() {
         const ID = block.getFieldValue('ID')
         const TEXT = block.getFieldValue('TEXT')
         const TYPE = block.getFieldValue('TYPE')
-        const FILTER = block.getFieldValue('FILTER')
-        const CONDITION = javascriptGenerator.valueToCode(block, 'CONDITION', javascriptGenerator.ORDER_ATOMIC);
         const INPUTS = javascriptGenerator.statementToCode(block, 'INPUTS');
-        const DMCONDITION = (TYPE === 'REPORTER,' || TYPE === 'BOOLEAN,' ? block.getFieldValue('DMCONDITION') : true);
         const FUNC = javascriptGenerator.statementToCode(block, 'FUNC');
         
-        const code = `blocks.push({
+        const code = `{
             opcode: \`${ID}\`,
             blockType: Scratch.BlockType.${TYPE}
-            hideFromPalette: ${!CONDITION.includes(`((value) =>
-            typeof value === 'string' && (value === 'true' || value === 'false') ?
-            value === 'true' :
-            Boolean(value))(),`) ? CONDITION : false},
-            text: \`${TEXT}\`,${FILTER}
+            text: \`${TEXT}\`,
             arguments: { ${INPUTS} },
-            disableMonitor: ${DMCONDITION}
-        });
-        Extension.prototype[\`${ID}\`] = async (args, util) => { ${FUNC} };`;
+            returns: (block, javascriptGenerator) => { ${FUNC} }
+        },`;
         return `${code}\n`;
     })
 

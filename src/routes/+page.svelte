@@ -30,9 +30,9 @@
     import fileDialog from "../resources/fileDialog";
     import EventManager from "../resources/events";
 
-    import AddXMLtoXML from '../utils/AddXMLtoXML.js';
-    import RemoveXMLfromXML from '../utils/RemoveXMLfromXML.js';
-    import { get, set, remove } from '../utils/GlobalTempVariables.js';
+    // import AddXMLtoXML from '../utils/AddXMLtoXML.js';
+    // import RemoveXMLfromXML from '../utils/RemoveXMLfromXML.js';
+    // import { get, set, remove } from '../utils/GlobalTempVariables.js';
 
     import Blockly from "blockly/core";
     import * as ContinuousToolboxPlugin from "@blockly/continuous-toolbox";
@@ -102,23 +102,23 @@
     registerDebug();
 
     // Extension Blocks
-    import registerWebExtension from "../resources/extensions/webextension/webextension.js";
-    import registerJSExtension from "../resources/extensions/javascript/javascript.js";
-    import registerTimersExtension from "../resources/extensions/dm_timers/timers.js";
+    // import registerWebExtension from "../resources/extensions/webextension/webextension.js";
+    // import registerJSExtension from "../resources/extensions/javascript/javascript.js";
+    // import registerTimersExtension from "../resources/extensions/dm_timers/timers.js";
 
-    registerWebExtension();
-    registerJSExtension();
-    registerTimersExtension();
+    // registerWebExtension();
+    // registerJSExtension();
+    // registerTimersExtension();
 
-    import hiddenblocksExtension from "../resources/extensions/hiddenblocks/hiddenblocks.xml?raw";
-    import webExtensionExtension from "../resources/extensions/webextension/webextension.xml?raw";
-    import effectsExtension from "../resources/extensions/effects/effects.xml?raw";
-    import javascriptExtension from "../resources/extensions/javascript/javascript.xml?raw";
-    import timersExtension from "../resources/extensions/dm_timers/timers.xml?raw";
+    // import hiddenblocksExtension from "../resources/extensions/hiddenblocks/hiddenblocks.xml?raw";
+    // import webExtensionExtension from "../resources/extensions/webextension/webextension.xml?raw";
+    // import effectsExtension from "../resources/extensions/effects/effects.xml?raw";
+    // import javascriptExtension from "../resources/extensions/javascript/javascript.xml?raw";
+    // import timersExtension from "../resources/extensions/dm_timers/timers.xml?raw";
 
-    import registerCustomExtension from "../resources/extensions/custom/extension_renderer.js";
-    import registerBlock from '../resources/register';
-    import javascriptGenerator from '../resources/javascriptGenerator';
+    // import registerCustomExtension from "../resources/extensions/custom/extension_renderer.js";
+    // import registerBlock from '../resources/register';
+    // import javascriptGenerator from '../resources/javascriptGenerator';
 
     const en = {
         rtl: false,
@@ -218,38 +218,11 @@
     function generateDinoBuilderWindow(window) {
         window.dinoBuilder = window.dinoBuilder || {};
 
-        // Extensions
-        window.dinoBuilder.extensions = window.dinoBuilder.extensions || {};
-        window.dinoBuilder.extensions.register = (extensionClass) => {
-            const {xml, name, blocks} = registerCustomExtension(extensionClass)
-            onAddExtension(xml, name, true, true, blocks)
-        }
-
         // Blockly
         window.dinoBuilder.Blockly = window.Blockly || {};
         window.dinoBuilder.Blockly.getMainWorkspace = () => workspace;
         window.dinoBuilder.Blockly.getMainWorkspace().undo = () => workspace.undo();
         window.dinoBuilder.Blockly.getMainWorkspace().redo = () => workspace.redo();
-        /*window.dinoBuilder.Blockly.getMainWorkspace().refreshToolbox = () => {
-            const Blockly = window.dinoBuilder.Blockly;
-            const workspace = Blockly.getMainWorkspace()
-            const toolboxXml = workspace.options.languageTree.cloneNode(true);
-            workspace.updateToolbox(toolboxXml);
-        };*/
-
-        // ArgumentTypes
-        window.dinoBuilder.ArgumentType = window.dinoBuilder.ArgumentType || {};
-        window.dinoBuilder.ArgumentType.EMPTY = "input_value";
-        window.dinoBuilder.ArgumentType.STRING = "field_input";
-
-        // BlockTypes
-        window.dinoBuilder.BlockType = window.dinoBuilder.BlockType || {};
-        window.dinoBuilder.BlockType.BLOCK = "block";
-        window.dinoBuilder.BlockType.REPORTER = "reporter";
-        window.dinoBuilder.BlockType.BOOLEAN = "boolean";
-        window.dinoBuilder.BlockType.GAP = "gap";
-        window.dinoBuilder.BlockType.LABEL = "label";
-        window.dinoBuilder.BlockType.XML = "xml";
 
         // Gui
         window.dinoBuilder.Gui = window.Gui || {};
@@ -266,14 +239,6 @@
             FileSaver.saveAs(blob, filteredFileName + fileExtension);
         };
         window.dinoBuilder.Gui.generatedCode = () => beautifyGeneratedCode(code);
-
-        Object.defineProperty(window.dinoBuilder, "secret_", {
-            value: function () {
-                console.log("Credits: Penguinmod")
-                window.dinoBuilder.extensions.register('class Extension {getInfo() {return {"name": "Ur mom","id": "urmom","colour": "#FF0000","blocks": [{"opcode": "block","text": "ur mom","type": "block","returns": (block, javascriptGenerator) => {return \`const urmom = "urmom"; console.log(urmom)\`;}},{"opcode": "reporter","text": "ur mom","type": "reporter","output": "string","returns": (block, javascriptGenerator) => {return [\`"urmom"\`, javascriptGenerator.ORDER_ATOMIC];}},{"opcode": "boolean","text": "ur mom","type": "boolean","returns": (block, javascriptGenerator) => {return [\`Boolean("urmom")\`, javascriptGenerator.ORDER_ATOMIC];}},]}}}');
-            },
-            enumerable: false
-        });
     }
 
     let dropdownEl;
@@ -417,7 +382,7 @@
                 // console.log(idWorkspacePairs); // debug
 
                 // extensions
-                async function addAllExtensions() {
+                /*async function addAllExtensions() {
                     const extensions = projectJson.extensions;
                     for (const extension of extensions) {
                         if (extension.customData) {
@@ -443,7 +408,7 @@
                         }
                     };
                 }
-                addAllExtensions()
+                addAllExtensions()*/
 
                 // laod
                 console.log(projectJson); // debug
@@ -568,7 +533,7 @@
         blockPIcons: false,
     };
 
-    let newToolbox = Toolbox;
+    /*let newToolbox = Toolbox;
 
     function hasCategory(xmlString, categoryName) {
         const doc = new DOMParser().parseFromString(xmlString, 'text/xml');
@@ -633,10 +598,10 @@
         } catch (error) {
             console.error('Error injecting XML:', error);
         }
-    }
+    }*/
     let refreshKey = 0;
     
-    async function updateToolbox(newToolbox) {
+    /*async function updateToolbox(newToolbox) {
         try {
             while (!workspace) {
                 await new Promise(resolve => setTimeout(resolve, 0));
@@ -677,12 +642,12 @@
             updateToolbox(newToolbox);
             hideExtensionDropdown();
         }
-    }
+    }*/
 
     $: if (IsLiveTests) {
         console.log("Is Live Tests?: ", IsLiveTests)
         try {
-            onAddExtension(liveTestsCategory, "Live Tests", false);
+            // onAddExtension(liveTestsCategory, "Live Tests", false);
         } catch (error) {
             console.error('Error injecting XML:', error);
         }
@@ -770,36 +735,6 @@
     color2={extensionMetadata.color2}
     color3={extensionMetadata.color3}
 />
-{#if ModalState.addExtensions}
-    <AddExtensionsModal
-        on:completed={async (addextensiondata) => {
-            ModalState.addExtensions = false;
-            if (addextensiondata.detail.hiddenblocksExt === true) {
-                onHiddenBlocksMount()
-            }
-            if (addextensiondata.detail.webextensionExt === true) {
-                onWebExtensionMount()
-            }
-            if (addextensiondata.detail.effectsExt === true) {
-                onEffectsMount()
-            }
-            if (addextensiondata.detail.jsextensionExt === true) {
-                onJSExtensionMount()
-            }
-            if (addextensiondata.detail.timersextensionExt === true) {
-                onTimersExtensionMount()
-            }
-            if (addextensiondata.detail.customextensionExt === true) {
-                if (typeof window !== undefined) {
-                    window.dinoBuilder.extensions.register(addextensiondata.detail.extensionCode)
-                }
-            }
-        }}
-        on:cancel={() => {
-            ModalState.addExtensions = false;
-        }}
-    />
-{/if}
 {#if ModalState.extensionColors}
     <ExtensionColorsModal
         color1={extensionMetadata.color1}
@@ -946,11 +881,6 @@
             </div>
             <div class="blocklyWrapper">
                 <BlocklyComponent {config} locale={en} bind:workspace />
-                {#if IsLiveTests}
-                    <div class="extensionDropdown" style="display: none; position: absolute;">
-                        <button on:click={() => onRemoveExtension(selectedExtension)}>Remove Extension</button>
-                    </div>
-                {/if}
             </div>
         </div>
         <div class="row-submenus">

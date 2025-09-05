@@ -72,63 +72,6 @@
                         Primary
                         <input type="color" bind:value={color1} />
                     </label>
-                    <div style="margin-left:6px" />
-                    <label>
-                        Secondary
-                        <input type="color" bind:value={color2} />
-                    </label>
-                    <div style="margin-left:6px" />
-                    <label>
-                        Teritary
-                        <input type="color" bind:value={color3} />
-                    </label>
-                </div>
-                <div
-                    style="display:flex;flex-direction:row;align-items:center;"
-                >
-                    <label>
-                        Include Teritary Color
-                        <input type="checkbox" bind:checked={color3Included} />
-                    </label>
-                </div>
-                <div
-                    style="display:flex;flex-direction:row;align-items:center;"
-                >
-                    <label>
-                        TurboBuilder Indicator (PenguinMod Experimental Feature)
-                        <input type="checkbox" bind:checked={tbShow} />
-                    </label>
-                </div>
-                <div
-                    style="display:flex;flex-direction:row;align-items:center;"
-                >
-                    <div class="extensionMenuPreview">
-                        <div style="text-align: center;">
-                            <div
-                                class="extensionBubbleIcon"
-                                style={`background: ${color1}; border-color: ${color2}`}
-                            >
-                                {#if tbShow}
-                                    <img
-                                        class="tbBubbleIcon"
-                                        src="turbobuilder_icon.svg"
-                                        alt="TurboBuilder"
-                                    />
-                                {/if}
-                            </div>
-                            <div class="extensionBubbleName">Extension</div>
-                        </div>
-                    </div>
-
-                    <img
-                        alt="Color preview"
-                        src={getExampleURL(
-                            color1,
-                            color2,
-                            color3,
-                            color3Included
-                        )}
-                    />
                 </div>
             </div>
         </div>
