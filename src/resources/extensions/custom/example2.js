@@ -66,7 +66,16 @@
                         "returns": (block, javascriptGenerator) => {
                             return `console.log("The End")`;
                         }
-                    }
+                    },
+                    {
+                        "opcode": "block3",
+                        "text": "example hidden block",
+                        "type": dinoBuilder.BlockType.BLOCK,
+                        "hideFromPalette": true, // this determines whether the block will appear in the palette or not
+                        "returns": (block, javascriptGenerator) => {
+                            return `console.log("Hidden Block")`;
+                        }
+                    },
                 ]
             }
         }

@@ -213,7 +213,7 @@ function register() {
 
     // create dem inputss!!!
     registerBlock(`${categoryPrefix}input`, {
-        message0: 'create input %1 id: %2 %3 type: %4 %5 default: %6',
+        message0: 'create input %1 id: %2 %3 type: %4',
         args0: [
             {
                 "type": "input_dummy"
@@ -233,22 +233,8 @@ function register() {
                 "options": [
                     [ "string", "STRING" ],
                     [ "number", "NUMBER" ],
-                    [ "boolean", "BOOLEAN" ],
-                    [ "color", "COLOR" ],
-                    [ "costume", "COSTUME" ],
-                    [ "sound", "SOUND" ],
-                    [ "angle", "ANGLE" ],
-                    [ "matrix", "MATRIX" ],
-                    [ "note", "NOTE" ],
-                    [ "empty", "empty" ],
+                    [ "empty", "EMPTY" ],
                 ]
-            },
-            {
-                "type": "input_dummy"
-            },
-            {
-                "type": "input_value",
-                "name": "DEFAULT",
             }
         ],
         nextStatement: "BlockInput",
@@ -258,11 +244,10 @@ function register() {
     }, (block) => {
         const ID = block.getFieldValue('ID')
         const TYPE = block.getFieldValue('TYPE')
-        const DEFAULT = javascriptGenerator.valueToCode(block, 'DEFAULT', javascriptGenerator.ORDER_ATOMIC);
         
         const code = `"${ID}": {
-            type: Scratch.ArgumentType.${TYPE}, ${DEFAULT ? `
-            defaultValue: ${DEFAULT},`: ''}
+            type: dinoBuilder.ArgumentType.${TYPE}, ${TYPE === "EMPTY" ? `
+            check: null,`: ''}
         },`;
         return `${code}\n`;
     })
@@ -347,8 +332,21 @@ function register() {
         inputsInline: true,
         colour: categoryColor,
     }, (block) => {
+        let parent = block.getSurroundParent();
+        while (parent && parent.type !== `${categoryPrefix}create`) {
+            parent = parent.getSurroundParent();
+        }
+        const getFieldType = parent.getFieldValue('TYPE')
         const VALUE = javascriptGenerator.valueToCode(block, 'VALUE', javascriptGenerator.ORDER_ATOMIC);
-        const code = `return ${VALUE || ''}`;
+        let returnCode;
+
+        if (getFieldType == "REPORTER," || getFieldType == "BOOLEAN,") {
+            returnCode = `[${VALUE || ''}, javascriptGenerator.ORDER_ATOMIC]`
+        } else {
+            returnCode = `${VALUE || ''}`
+        }
+        
+        const code = `return ${returnCode}`;
         return `${code}\n`;
     })
 

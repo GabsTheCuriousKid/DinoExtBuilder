@@ -136,7 +136,7 @@ function defineXmlOfExtension(extensionClass) {
         const type = block["type"];
         if (blockid) {
             const editedid = id + '_' + blockid;
-            xmlblocks += `<block type="${editedid}" data-extension="true" />`
+            if (block["hideFromPalette"] === true) xmlblocks += `<block type="${editedid}" data-extension="true" />`
         }
         if (type == 'xml') {
             const xml = block["xml"];

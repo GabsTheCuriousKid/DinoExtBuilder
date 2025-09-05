@@ -1,10 +1,21 @@
 <xml>
+    <category name="Literals" colour="#59C08E">
+        <block type="literals_true" />
+        <block type="literals_false" />
+        <block type="literals_number" />
+        <block type="literals_direction" />
+        <block type="literals_string" />
+        <block type="literals_color" />
+    </category>
     <category name="Variables" colour="#FF8C1A">
         <block type="variable_set" />
         <block type="variable_get" />
     </category>
     <category name="Blocks" colour="#FF6680">
         <block type="blocks_create" />
+        <block type="blocks_input" />
+        <sep gap="48"></sep>
+        <block type="blocks_return" />
         <!--<block type="blocks_createcap" />
         <block type="blocks_createobject">
             <value name="CONDITION">
